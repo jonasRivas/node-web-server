@@ -1,6 +1,8 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
+
+const port = process.env.PORT || 3000;
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials')
@@ -24,7 +26,7 @@ app.use((req, res, next)=> {
 	fs.appendFile('server.log', log + '\n');
 	next();
 })
-//this part is for maintenance page 
+//this part is for maintenance page
 // app.use((req,res, next) => {
 // 	res.render('maintenance.hbs');
 // });
@@ -65,6 +67,6 @@ app.get('/bad', (req,res) => {
 	res.send(errorMessage);
 });
 
-app.listen(3000, () =>{
-	console.log('Server is on port 3000');
+app.listen(port, () =>{
+	console.log('Server is on port 3000 ${port}');
 	});
