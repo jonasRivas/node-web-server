@@ -56,6 +56,12 @@ app.get('/about', (req,res) => {
 	});
 });
 
+app.get('/contact', (req,res) => {
+	res.render('contact.hbs',{
+		pageTitle : 'Contact Page',
+		message : 'This is a message from Contact page'
+	});
+});
 app.get('/bad', (req,res) => {
 	var errorMessage = {
 		name: 'Alfonso',
